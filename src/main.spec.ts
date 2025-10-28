@@ -24,7 +24,10 @@ describe('main bootstrap', () => {
 
     expect(NestFactory.createMicroservice).toHaveBeenCalledWith(expect.any(Function), {
       transport: Transport.TCP,
-      options: { port: 3002 },
+      options: {
+        host: '0.0.0.0',
+        port: 3002
+      },
     });
     expect(useGlobalPipes).toHaveBeenCalled();
     expect(listen).toHaveBeenCalled();
